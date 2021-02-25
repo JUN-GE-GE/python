@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %}
+
+<body style="background-image: url(http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/4381b4b7d477eee99fcc4224b4bf18ba.jpg);">
+    <div class='row'>
+
+        <div class="col-lg-4"></div>
+        <div class="col-lg-2">
+            <h2>Hello, <a href="/{{ current_user.username }}">{{ current_user.username }}</a></h2>
+        </div>
+
+    </div>
+    <div class='row'>
+        <div class="col-lg-4"></div>
+        <div class="col-lg-8">
+            {% include '_chat.html' %} {% if prev_url %}
+            <button><a href="{{ prev_url }}">上一页</a></button> {% endif %} {% if next_url %}
+            <button><a href="{{ next_url }}">下一页</a></button> {% endif %}
+
+
+
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.chat(cols=50, rows=3) }}<br> {% for error in form.chat.errors %}
+                    <span style="color: red;">[{{ error }}]</span> {% endfor %}
+                </p>
+                <button class="btn btn-info" type="submit">发送</button>
+            </form>
+        </div>
+    </div>
+</body>
+{% endblock %}

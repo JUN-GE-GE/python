@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style type="text/css">
+        body {
+            background: url(http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/a9824c62ac39fd7d79b4e1226ea69093.jpg) no-repeat 0px 0px;
+            font-family: 'Open Sans', sans-serif;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            min-height: 1050px;
+        }
+        
+        .wrap {
+            margin: 0 auto;
+            width: 80%;
+        }
+        
+        .close {
+            background: url(http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/f26ad86f3d2450e088f5b8c6ce6a95bf.png) no-repeat 0px 0px;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            -webkit-transition: color 0.2s ease-in-out;
+            -moz-transition: color 0.2s ease-in-out;
+            -o-transition: color 0.2s ease-in-out;
+            transition: color 0.2s ease-in-out;
+        }
+        /*--/close--*/
+        
+        h1 {
+            font-family: 'Exo 2', sans-serif;
+            text-align: center;
+            padding-top: 4em;
+            font-weight: 400;
+            color: #2B2B36;
+            font-size: 2em;
+        }
+        
+        .login-form {
+            background: #2b2b36;
+            position: relative;
+            width: 30%;
+            margin: 3% auto 0 auto;
+            text-align: center;
+            border-radius: 15px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -o-border-radius: 15px;
+        }
+        
+        .head img {
+            width: 100%;
+        }
+        
+        .avtar img {
+            margin: 2em 0 0;
+        }
+        
+        .head-info {
+            padding: 5px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 2em;
+            color: #fff;
+            background: #23232e;
+            height: 50px;
+            border-top-left-radius: 10px;
+            -webkit-border-top-left-radius: 10px;
+            -moz-border-top-left-radius: 10px;
+            -o-border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            -webkit-border-top-right-radius: 10px;
+            -moz-border-top-right-radius: 10px;
+            -o-border-top-right-radius: 10p
+        }
+        
+        .key {
+            background: url(http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/a853c362df31783db64eeceabeeb8ea4.png) no-repeat 447px 17px;
+        }
+        
+        label.lbl-1 {
+            background: #6756ea;
+            width: 20px;
+            height: 20px;
+            display: block;
+            float: right;
+            border-radius: 50%;
+            margin: 16px 10px 0px 0px;
+        }
+        
+        label.lbl-2 {
+            background: #ea569a;
+            width: 20px;
+            height: 20px;
+            display: block;
+            float: right;
+            border-radius: 50%;
+            margin: 16px 10px 0px 0px;
+        }
+        
+        label.lbl-3 {
+            background: #f1c85f;
+            width: 20px;
+            height: 20px;
+            display: block;
+            float: right;
+            border-radius: 50%;
+            margin: 16px 10px 0px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--SIGN UP-->
+    <h1 style="color: white;">WeChat Register Form</h1>
+    <div class="login-form">
+        <div class="close"> </div>
+        <div class="head-info">
+            <label class="lbl-1"> </label>
+            <label class="lbl-2"> </label>
+            <label class="lbl-3"> </label>
+        </div>
+        <div class="clear"> </div>
+        <div class="avtar">
+            <img src="http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/018fdc7eafb56af0a45d94d067c6c33f.png" /><br>
+        </div>
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <p>
+                <span style="color: white;"> 用户：</span> {{ form.username() }}<br> {% for error in form.username.errors %}
+                <span style="color: red;">[{{ error }}]</span> {% endfor %}
+            </p>
+            <p>
+                <span style="color: white;">邮箱：</span> {{ form.email() }}<br> {% for error in form.email.errors %}
+                <span style="color: red;">[{{ error }}]</span> {% endfor %}
+            </p>
+            <p>
+                <span style="color: white;">密码：</span> {{ form.password() }}<br> {% for error in form.password.errors %}
+                <span style="color: red;">[{{ error }}]</span> {% endfor %}
+            </p>
+            <p>
+                <span style="color: white;">确认：</span> {{ form.password2() }}<br> {% for error in form.password2.errors %}
+                <span style="color: red;">[{{ error }}]</span> {% endfor %}
+            </p>
+            <a href="{{ url_for('login') }}">登录</a>
+            <button class="btn btn-lg btn-outline-primary">注册</button>
+        </form>
+
+    </div>
+
+
+</body>
+
+</html>

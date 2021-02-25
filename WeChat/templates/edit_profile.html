@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block content %}
+
+<body style="background-image: url(http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/4381b4b7d477eee99fcc4224b4bf18ba.jpg);"></body>
+<div class='row'>
+    <div class="text-center col-lg-4"></div>
+    <div class="text-center col-lg-4">
+        <h1>修改个性签名</h1>
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.about_me.label }}<br> {{ form.about_me(cols=50, rows=3) }}<br> {% for error in form.about_me.errors %}
+                <span style="color: red;">[{{ error }}]</span> {% endfor %}
+            </p>
+            <button class="btn btn-info" type="submit">保存</button>
+        </form>
+    </div>
+</div>
+</body>
+{% endblock %}

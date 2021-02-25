@@ -1,0 +1,10 @@
+<table class="table table-hover">
+    {% for chat in chats %}
+    <tr valign="top">
+        <td><img style="border-radius: 50%;" src="{{ chat.author.avatar(50) }}" alt=""></td>
+        <td class="col-md-12 align-left">
+            <a href="{{ url_for('Profile',username=chat.author.username) }}"><b>{{ chat.author.username }}</b></B></a> {{ chat.create_time }}<br> {{ chat.body }}
+        </td>
+    </tr>
+    {% endfor %}
+</table>

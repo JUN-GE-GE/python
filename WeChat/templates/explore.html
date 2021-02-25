@@ -1,0 +1,5 @@
+<body style="background-image: url(http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/4381b4b7d477eee99fcc4224b4bf18ba.jpg);">
+    {% extends "base.html "%} {% block content %} {% include '_chat.html' %} {% if next_url %}
+    <button><a href="{{ next_url }}">下一页</a></button> {% endif %} {% if prev_url %}
+    <button><a href="{{ prev_url }}">上一页</a></button> {% endif %} {% endblock %}
+</body>

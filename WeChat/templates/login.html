@@ -1,0 +1,211 @@
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style type="text/css">
+        body {
+            background: url(http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/a9824c62ac39fd7d79b4e1226ea69093.jpg) no-repeat 0px 0px;
+            font-family: 'Open Sans', sans-serif;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            min-height: 1050px;
+        }
+        
+        .wrap {
+            margin: 0 auto;
+            width: 80%;
+        }
+        
+        .close {
+            background: url(http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/f26ad86f3d2450e088f5b8c6ce6a95bf.png) no-repeat 0px 0px;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            -webkit-transition: color 0.2s ease-in-out;
+            -moz-transition: color 0.2s ease-in-out;
+            -o-transition: color 0.2s ease-in-out;
+            transition: color 0.2s ease-in-out;
+        }
+        /*--/close--*/
+        
+        h1 {
+            font-family: 'Exo 2', sans-serif;
+            text-align: center;
+            padding-top: 4em;
+            font-weight: 400;
+            color: #2B2B36;
+            font-size: 2em;
+        }
+        
+        .login-form {
+            background: #2b2b36;
+            position: relative;
+            width: 30%;
+            margin: 3% auto 0 auto;
+            text-align: center;
+            border-radius: 15px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -o-border-radius: 15px;
+        }
+        
+        .head img {
+            width: 100%;
+        }
+        
+        .avtar img {
+            margin: 2em 0 0;
+        }
+        
+        .head-info {
+            padding: 5px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 2em;
+            color: #fff;
+            background: #23232e;
+            height: 50px;
+            border-top-left-radius: 10px;
+            -webkit-border-top-left-radius: 10px;
+            -moz-border-top-left-radius: 10px;
+            -o-border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            -webkit-border-top-right-radius: 10px;
+            -moz-border-top-right-radius: 10px;
+            -o-border-top-right-radius: 10p
+        }
+        
+        input[type="text"] {
+            width: 70%;
+            padding: 1em 2em 1em 3em;
+            color: #9199aa;
+            font-size: 18px;
+            outline: none;
+            background: url(http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/81cad98a7c851cf79254fca35ab81613.png) no-repeat 10px 15px;
+            border: none;
+            font-weight: 100;
+            border-bottom: 1px solid#484856;
+            margin-top: 2em;
+        }
+        
+        input[type="password"] {
+            width: 70%;
+            padding: 1em 2em 1em 3em;
+            color: #dd3e3e;
+            font-size: 18px;
+            outline: none;
+            background: url(http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/9bb18793b69c7cefc4c13474707b4db4.png) no-repeat 10px 23px;
+            border: none;
+            font-weight: 100;
+            border-bottom: 1px solid#484856;
+            margin-bottom: 3em;
+        }
+        
+        .key {
+            background: url(http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/a853c362df31783db64eeceabeeb8ea4.png) no-repeat 447px 17px;
+        }
+        
+        input[type="submit"] {
+            font-size: 30px;
+            color: #fff;
+            outline: none;
+            border: none;
+            background: #3ea751;
+            width: 100%;
+            padding: 18px 0;
+            border-bottom-left-radius: 15px;
+            -webkit-border-bottom-left-radius: 15px;
+            -moz-border-bottom-left-radius: 15px;
+            -o-border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            -webkit-border-bottom-right-radius: 15px;
+            -moz-border-bottom-right-radius: 15px;
+            -o-border-bottom-right-radius: 15px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background: #ff2775;
+            border-bottom-left-radius: 15px;
+            -webkit-border-bottom-left-radius: 15px;
+            -moz-border-bottom-left-radius: 15px;
+            -o-border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            -webkit-border-bottom-right-radius: 15px;
+            -moz-border-bottom-right-radius: 15px;
+            -o-border-bottom-right-radius: 15px;
+            transition: 1s all;
+            -webkit-transition: 1s all;
+            -moz-transition: 1s all;
+            -o-transition: 1s all;
+        }
+        
+        label.lbl-1 {
+            background: #6756ea;
+            width: 20px;
+            height: 20px;
+            display: block;
+            float: right;
+            border-radius: 50%;
+            margin: 16px 10px 0px 0px;
+        }
+        
+        label.lbl-2 {
+            background: #ea569a;
+            width: 20px;
+            height: 20px;
+            display: block;
+            float: right;
+            border-radius: 50%;
+            margin: 16px 10px 0px 0px;
+        }
+        
+        label.lbl-3 {
+            background: #f1c85f;
+            width: 20px;
+            height: 20px;
+            display: block;
+            float: right;
+            border-radius: 50%;
+            margin: 16px 10px 0px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--SIGN UP-->
+    <h1 style="color: white;">WeChat Login Form</h1>
+    <div class="login-form">
+        <div class="close"> </div>
+        <div class="head-info">
+            <label class="lbl-1"> </label>
+            <label class="lbl-2"> </label>
+            <label class="lbl-3"> </label>
+        </div>
+        <div class="clear"> </div>
+        <div class="avtar">
+            <img src="http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/018fdc7eafb56af0a45d94d067c6c33f.png" />
+        </div>
+        <form action="" method="post" class="form-signin">
+            <p>
+                <span style="color: white;">用户：</span> {{ form.username() }}
+
+                <p>
+                    <span style="color: white;">密码：</span> {{ form.password() }}
+                </p> {{ form.remember_me() }} <span style="color: white;">记住我</span>
+
+                <div class="signin">
+                    <button class="btn btn-lg btn-outline-primary" type="submit">登录</button>
+                </div>
+                <p>
+                    <a href="{{ url_for('register') }}">注册</a>&nbsp;&nbsp;
+                    <a href="{{ url_for('reset_password_request') }}">忘记密码?</a>
+                </p>
+                <p class="mt-5 mb-3 text-muted" style="color:white;">&copy; 2019</p>
+        </form>
+    </div>
+</body>

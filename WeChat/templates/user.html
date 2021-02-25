@@ -1,0 +1,230 @@
+{% extends "base.html" %} {% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .main p {
+            line-height: 8px;
+        }
+        
+        .bb h4 {
+            margin-left: 100px;
+        }
+    </style>
+</head>
+
+<body style="background-color: #f0f0f0e0">
+    <div style="width: 100%;height: 50px;background-color:white ;">
+        <div class="navbar-header bb" style="margin-left:45px;display: flex;">
+            <h4 style="color:#ccc"> <img style="width: 20px;height: 20px;" src="http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/6eb3e6ad8bb58235b71f528b45108326.png">HOME</h4>
+            <h4 style="color:#ccc;"><img src="http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/a13e9183033a5bdff0d22d3b382a04fd.png" style="width: 20px;height: 20px;">Notifications</h4>
+            <h4 style="color:#ccc;"><img src="http://adba1f573a9e2b10f4dc.test.upcdn.net/apicloud/754545edd3afd590578fd601283ad88e.png" style="width: 20px;height: 20px;">Messages</h4>
+        </div>
+        <form class="navbar-form navbar-left" role="search" style="margin-left: 70%;margin-top: -42px;">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">提交</button>
+        </form>
+        <div style="margin-left: 88%;line-height: 30px;"> <img style="border-radius: 50%;" src="{{ user.avatar(25) }}" alt=""> &nbsp;<button style="width: 50px;color: #fff;;border: 0;background-color:#ff3333;height:30px ;border-radius: 50%;">{{ current_user.username }}</button></div>
+    </div>
+
+    {% if user!= current_user %}
+    <div style="margin-bottom:0;background-color: #f39800;height: 120px; border:5px solid #f39800;"> {% else %}
+        <div style="margin-bottom:0;background-color: #ff5151;height: 120px; border:5px solid #ff5151;">{% endif %}
+            <div style="width:200px">
+                <div style="width: 120px;height: 120px;border-radius: 50%;background-color: white;position: relative;margin-left: 200px; margin-top: 50px;">
+                    <div style="width: 104px;height: 104px;border-radius: 50%;position: absolute;top: 50%;left: 50%; margin-left: -52px; margin-top: -52px;">
+                        <div style="width: 104px; height: 104px; border-radius: 50%;background-color: white;position: relative;">
+                            <img style="border-radius: 50%;width: 104px;height: 104px; " src="{{ user.avatar(150) }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="width: 100%;height: 30px;background-color: white;box-shadow: 5px 5px 5px #888888;">
+            <div style="margin-left: 420px;line-height: 30px;display: flex;">
+                <form action="" method="post" style="height: 30px;">
+                    {% if user != current_user %} {% if current_user.is_following(user) %}
+                    <input class="btn btn-outline-primary" type="submit" name="request_button" value="Unfollow"> {% else %}
+                    <input class="btn btn-outline-primary" type="submit" name="request_button" value="Follow"> {% endif %} {% endif %}
+                </form>
+                <a href="#">Followers<span class="badge">{{ user.followers.count() }}</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#">Following <span class="badge"> {{ user.followed.count() }}</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <a href="#">Likes <span class="badge"> 403</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#">Lists <span class="badge"> 2</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#">Moments <span class="badge"> 0</span></a>&nbsp;&nbsp;
+            </div>
+        </div>
+        <div class="container " style="margin-top: 40px;">
+            <div class="row" style="height: 1020px;margin-left: -200px;">
+                <div class="col-md-2"></div>
+                <div class="col-md-3" style="border-radius: 5%;">
+                    <h2>{{ current_user.username }}</h2>
+                    <h4 style="color: #aaa;">@{{ current_user.username }}163</h4>
+                    {% if user.about_me %}
+                    <p><b>关于我:</b>{{ user.about_me }}</p>
+                    <p><a href="{{ url_for('edit_profile') }}">修改签名</a></p>
+                    {% endif %}
+                    <p>THOSE WHO PLACE THE PROBLEM <span style="color: #ff3333;">SHOULD</span> FIX IT.WHAT WE HOPE FOR , WE <span style="color: #ff3333;">TREAT</span> WHAT WE CAN.</p>
+                    <p style="color: #aaa;">
+                        <img style="width: 20px;height: 20px;" src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/53d156b9fba7347d7168b89a329e27be.png"> chongqing
+                    </p>
+                    <p style="color: #ff3333;">
+                        <img style="width: 20px;height: 20px;" src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/92c293c27bb21f07190f51a24e945c97.png"> linkedin.com/in/peng-xiao-2...
+                    </p>
+                    <p style="color: #aaa;">
+                        <img style="width: 20px;height: 20px;" src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/cc9fe02d1075fd4781eae10e415b0fd6.png"> Born December 20, 1985
+                    </p>
+                    <p style="color: #aaa;">
+                        <img style="width: 20px;height: 20px;" src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/61b73ec507222771b0ee264562db0f88.png"> Born December 20, 1985
+                    </p>
+                    <p style="color: #ff3333;">
+                        <img style="width: 20px;height: 20px;" src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/2cd2460d5a246688c2089d83904eeab7.png"> 80 Photos and videos
+                    </p>
+                    <p><img style="width: 50px;height: 50px;" src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/4bf1909c6d771c72796565e106331305.jpg">
+                        <img style="width: 50px;height: 50px;" src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/58ae6d3710063573379987f4d4a64295.jpg">
+                        <img style="width: 50px;height: 50px;" src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/0309bb0c1be557613cd48210a67d96fa.jpg">
+                    </p>
+                    <p><img style="width: 50px;height: 50px;" src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/e1089ae7ff7cfb0c9bbccf5808578bd1.jpg">
+                        <img style="width: 50px;height: 50px;" src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/a35b5e3f23c113a7a629a5e76a699829.jpg">
+                        <img style="width: 50px;height: 50px;" src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/ae9638abb36feb92689582f47b42ea0a.jpg">
+                    </p>
+                </div>
+
+                <div class="col-md-4" style="background-color: white;">
+                    <div style="margin-left: 20px;height: 50px;border-bottom: 1px solid #ccc;">
+                        <label class="menu" style="line-height: 50px;margin-left: 30px;">Tweets</label>
+                        <label class="menu" style="line-height: 50px;color: #ff3333;margin-left: 50px;">Tweets & replies</label>
+                        <label class="menu" style="line-height: 50px;color: #ff3333;margin-left: 50px;">Media</label>
+                    </div>
+                    <div class="main" style="display: flex;margin-top: 20px;">
+                        <div><img style="border-radius: 50%;" src="{{ user.avatar(45) }}"></div>
+                        <div style="margin-left: 5px;">
+                            <p>Cai Jun<span style="color: #ccc;"> @{{ current_user.username }}163 . Dec 7</span></p>
+                            <p>Check out this Meetup: <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/792a53bad70c6b181c215df0fdcf47b1.png" style="width: 15px;"> Kubernetes in the Cloud <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/792a53bad70c6b181c215df0fdcf47b1.png"
+                                    style="width: 15px;"> </p>
+                            <p style="line-height: 12px;">
+                                <span style="line-height: 12px;color: #ff3333;">meetup.com/Codemotion-Ams... #Meetup #Amsterdam </span> via
+                                <span style="color: #ff3333;line-height: 10px;">@Meetup</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="height: 350px;border-bottom:1px solid #ccc;">
+                        <img style="border-radius: 7%;width: 410px;" src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/225ed883c2479c4f256cb7c6c9a46c9f.jpg">
+                        <div style="border-left: 1px solid #ccc;border-right: 1px solid #ccc;height: 130px;margin-top: -10px;">
+                            <p style="padding-top: 10px;padding-left: 5px;"> <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/792a53bad70c6b181c215df0fdcf47b1.png" style="width: 15px;"> Kubernetes in the Cloud <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/792a53bad70c6b181c215df0fdcf47b1.png"
+                                    style="width: 15px;"> </p>
+                            <p style="padding-left: 5px;">Our upcoming Meetup is all about K8s! Come learn how to make your own cloud servers or use multiple cloud providers Event schedule:18:00 Doors</p>
+                            <p style="color: #ccc;padding-left: 5px;">meetup.com</p>
+                        </div>
+                    </div>
+                    <div style="display: flex;">
+                        <p>
+                            <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/47f36fcbec741d4fb4745fd0fc0027cb.png" style="width: 20px;height: 20px;margin-left: 50px;">
+                            <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/d9243ea26f67892163bede591ef75aee.png" style="width: 20px;height: 20px;margin-left: 50px;">
+                            <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/b012b696c0cbec60977f5c5c40a86e56.png" style="width: 20px;height: 20px;margin-left: 50px;">
+                            <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/643bab4e5817079bc782e66ba20adeb8.png" style="width: 20px;height: 20px;margin-left: 50px;">
+                        </p>
+                    </div>
+                    <hr style="width: 110%;margin-left: -20px;margin-top: -1px;">
+                    <div class="main" style="display: flex;margin-top: 20px;">
+                        <div><img style="border-radius: 50%;" src="{{ user.avatar(45) }}"></div>
+                        <div style="margin-left: 5px;">
+                            <p>Cai Jun<span style="color: #ccc;"> @{{ current_user.username }}163 . Dec 7</span></p>
+                            <p>Check out this Meetup: <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/792a53bad70c6b181c215df0fdcf47b1.png" style="width: 15px;"> Kubernetes in the Cloud <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/792a53bad70c6b181c215df0fdcf47b1.png"
+                                    style="width: 15px;"> </p>
+                            <p>
+                                <span style="line-height: 10px;color: #ff3333;">meetup.com/Codemotion-Ams... #Meetup #Amsterdam </span> via
+                                <span style="color: #ff3333;line-height: 10px;">@Meetup</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="height: 350px;border-bottom:1px solid #ccc;">
+                        <img style="border-radius: 7%;width: 410px;" src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/553475719d0dbd712a52e3a60243de0c.jpeg">
+                        <div style="border-left: 1px solid #ccc;border-right: 1px solid #ccc;height: 130px;margin-top: -10px;">
+                            <p style="padding-top: 10px;padding-left: 5px;"> <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/792a53bad70c6b181c215df0fdcf47b1.png" style="width: 15px;"> Kubernetes in the Cloud <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/792a53bad70c6b181c215df0fdcf47b1.png"
+                                    style="width: 15px;"> </p>
+                            <p style="padding-left: 5px;">Our upcoming Meetup is all about K8s! Come learn how to make your own cloud servers or use multiple cloud providers Event schedule:18:00 Doors</p>
+                            <p style="color: #ccc;padding-left: 5px;">meetup.com</p>
+                        </div>
+                    </div>
+                    <div style="display: flex;">
+                        <p>
+                            <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/47f36fcbec741d4fb4745fd0fc0027cb.png" style="width: 20px;height: 20px;margin-left: 50px;">
+                            <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/d9243ea26f67892163bede591ef75aee.png" style="width: 20px;height: 20px;margin-left: 50px;">
+                            <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/b012b696c0cbec60977f5c5c40a86e56.png" style="width: 20px;height: 20px;margin-left: 50px;">
+                            <img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/643bab4e5817079bc782e66ba20adeb8.png" style="width: 20px;height: 20px;margin-left: 50px;">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-3" style="border-radius: 7%;">
+                    <div style="background-color: white;height: 250px;">
+                        <h4 style="font-weight: bold;margin-left: 20px;padding-top: 10px;"> Who to follow . <small style="color: #ff3333;">Refresh . View all</small>
+                        </h4>
+                        <div style="display: flex;">
+                            <div><img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/9198c555b61e3c2903774677c1c27b8b.jpeg" style="width: 50px;height: 50px;border-radius: 50%;"></div>
+                            <div style="margin-left: 20px;">
+                                <p style="color: #ccc;">Gawain Lau @blueguidel...</p>
+                                <button style="background-color: white;border: 1px solid #ff3333;color: #ff3333;">Followe</button>
+                            </div>
+                        </div>
+                        <hr>
+                        <div style="display: flex;">
+                            <div><img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/72707e2e2eed89df419a49d05fb0a6a1.jpg" style="width: 50px;height: 50px;border-radius: 50%;"></div>
+                            <div style="margin-left: 20px;">
+                                <p style="color: #ccc;">Gawain Lau @blueguidel...</p>
+                                <button style="background-color: white;border: 1px solid #ff3333;color: #ff3333;">Followe</button>
+                            </div>
+                        </div>
+                        <hr>
+                        <p style="color: #ff3333;margin-top: -5px;margin-left: 20px;"><img src="http://ab22b026f9a52dffa1a6.qiniucdn.apicloud-system.com/apicloud/b900ddd84b4bcd0900e90a00105082eb.png" style="width: 20px;height: 20px;color: #ff3333;">Find people you know</p>
+                    </div>
+                    <div style="background-color: white;height: 400px;margin-top: 20px;">
+                        <h4 style="font-weight: bold;margin-left: 20px;padding-top: 10px;">Trends for you . <small style="color: #ff3333;">Change</small></h4>
+                        <div style="margin-left: 20px;">
+                            <h5 style="color: #ff3333;font-weight: bold;">Ariana<br><small style="color: #ccc;"> 171K Tweets</small></h5>
+
+                        </div>
+                        <div style="margin-left: 20px;">
+                            <h5 style="color: #ff3333;font-weight: bold;">Kanye<br><small style="color: #ccc;"> 519K Twoets</small></h5>
+
+                        </div>
+                        <div style="margin-left: 20px;">
+                            <h5 style="color: #ff3333;font-weight: bold;">#grootdicteeop1</h5>
+                        </div>
+                        <div style="margin-left: 20px;">
+                            <h5 style="color: #ff3333;font-weight: bold;">#woinactie<br><small style="color: #ccc;"> 1,635 Twoots</small></h5>
+                        </div>
+                        <div style="margin-left: 20px;">
+                            <h5 style="color: #ff3333;font-weight: bold;">#UDIEurope<br><small style="color: #ccc;"> 2,230 Tweets</small></h5>
+                        </div>
+                        <div style="margin-left: 20px;">
+                            <h5 style="color: #ff3333;font-weight: bold;">#AdDiriyahEPrix<br><small style="color: #ccc;">26,7K Twreets</small></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
+{% endblock %}
